@@ -13,13 +13,13 @@ COPY .mvn .mvn
 RUN chmod +x mvnw
 
 # Download dependencies (this speeds up future builds)
-RUN ./mvnw dependency:go-offline
+RUN mvnw dependency:go-offline
 
 # Copy the rest of the project files
 COPY src src
 
 # Build the project
-RUN ./mvnw clean package -DskipTests
+RUN mvnw clean package -DskipTests
 
 # Run the Spring Boot jar
 CMD ["java", "-jar", "target/demo-project-0.0.1-SNAPSHOT.jar"]
