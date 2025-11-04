@@ -14,6 +14,5 @@ COPY . .
 # Build the project
 RUN mvn clean package -DskipTests
 
-# Run the application
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "target/demoProjectLaunched-0.0.1-SNAPSHOT.jar"]
+# Run the built JAR file
+CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
